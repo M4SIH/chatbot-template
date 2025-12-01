@@ -16,7 +16,7 @@ const useStyles = tss.create(({ theme }) => ({
     gap: theme.spacing(1),
     padding: theme.spacing(2),
     borderTop: `1px solid ${theme.palette.divider}`,
-    backgroundColor: "#ffffff",
+    backgroundColor: theme.palette.background.paper,
   },
   iconButton: {
     color: theme.palette.text.secondary,
@@ -24,7 +24,7 @@ const useStyles = tss.create(({ theme }) => ({
   textField: {
     "& .MuiOutlinedInput-root": {
       borderRadius: theme.spacing(2),
-      backgroundColor: "#f0f2f5",
+      backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[800] : theme.palette.grey[100],
       "& fieldset": {
         borderColor: "transparent",
       },
@@ -37,14 +37,14 @@ const useStyles = tss.create(({ theme }) => ({
     },
   },
   sendButton: {
-    backgroundColor: "#0088cc",
-    color: "#ffffff",
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
     "&:hover": {
-      backgroundColor: "#0077b3",
+      backgroundColor: theme.palette.primary.dark,
     },
     "&.Mui-disabled": {
-      backgroundColor: "#e4e6eb",
-      color: "#bcc0c4",
+      backgroundColor: theme.palette.mode === 'dark' ? theme.palette.grey[700] : theme.palette.grey[300],
+      color: theme.palette.mode === 'dark' ? theme.palette.grey[500] : theme.palette.grey[500],
     },
   },
 }));

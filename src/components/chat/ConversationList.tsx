@@ -21,7 +21,7 @@ const useStyles = tss
       height: "100%",
       display: "flex",
       flexDirection: "column",
-      backgroundColor: "#ffffff",
+      backgroundColor: theme.palette.background.paper,
       ...(showBorder && {
         borderRight: `1px solid ${theme.palette.divider}`,
       }),
@@ -34,14 +34,14 @@ const useStyles = tss
         width: "8px",
       },
       "&::-webkit-scrollbar-track": {
-        background: "#f1f1f1",
+        background: theme.palette.mode === 'dark' ? theme.palette.grey[800] : "#f1f1f1",
       },
       "&::-webkit-scrollbar-thumb": {
-        background: "#c1c1c1",
+        background: theme.palette.mode === 'dark' ? theme.palette.grey[600] : "#c1c1c1",
         borderRadius: "4px",
       },
       "&::-webkit-scrollbar-thumb:hover": {
-        background: "#a8a8a8",
+        background: theme.palette.mode === 'dark' ? theme.palette.grey[500] : "#a8a8a8",
       },
     },
   }));

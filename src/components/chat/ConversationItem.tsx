@@ -27,24 +27,24 @@ const useStyles = tss
       paddingLeft: theme.spacing(2),
       paddingRight: theme.spacing(2),
       "&.Mui-selected": {
-        backgroundColor: "#e3f2fd",
+        backgroundColor: theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
         "&:hover": {
-          backgroundColor: "#e3f2fd",
+          backgroundColor: theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light,
         },
       },
       "&:hover": {
-        backgroundColor: "#f5f5f5",
+        backgroundColor: theme.palette.action.hover,
       },
     },
     statusBadge: {
       marginRight: theme.spacing(2),
       "& .MuiBadge-badge": {
-        backgroundColor: isOnline ? "#4caf50" : "#9e9e9e",
-        border: "2px solid #ffffff",
+        backgroundColor: isOnline ? "#4caf50" : theme.palette.grey[500],
+        border: `2px solid ${theme.palette.background.paper}`,
       },
     },
     avatar: {
-      backgroundColor: "#0088cc",
+      backgroundColor: theme.palette.primary.main,
       width: 48,
       height: 48,
     },
@@ -76,7 +76,7 @@ const useStyles = tss
     unreadBadge: {
       marginLeft: theme.spacing(1),
       "& .MuiBadge-badge": {
-        backgroundColor: "#0088cc",
+        backgroundColor: theme.palette.primary.main,
       },
     },
   }));

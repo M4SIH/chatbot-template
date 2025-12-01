@@ -23,7 +23,7 @@ const useBaseStyles = tss.create(({ theme }) => ({
     height: "100vh",
     display: "flex",
     flexDirection: "column",
-    backgroundColor: "#ffffff",
+    backgroundColor: theme.palette.background.paper,
     borderRight: `1px solid ${theme.palette.divider}`,
   },
   brandingSection: {
@@ -40,13 +40,13 @@ const useBaseStyles = tss.create(({ theme }) => ({
     width: 32,
     height: 32,
     borderRadius: "50%",
-    backgroundColor: "#0088cc",
+    backgroundColor: theme.palette.primary.main,
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
   },
   logoIcon: {
-    color: "#ffffff",
+    color: theme.palette.primary.contrastText,
     fontSize: 20,
   },
   navList: {
@@ -65,11 +65,11 @@ const useBaseStyles = tss.create(({ theme }) => ({
   userBadge: {
     "& .MuiBadge-badge": {
       backgroundColor: "#4caf50",
-      border: "2px solid #ffffff",
+      border: `2px solid ${theme.palette.background.paper}`,
     },
   },
   userAvatar: {
-    backgroundColor: "#0088cc",
+    backgroundColor: theme.palette.primary.main,
     width: 40,
     height: 40,
   },
@@ -121,7 +121,7 @@ export const NavigationSidebar = ({
           <Box className={classes.logoCircle}>
             <ChatBubbleIcon className={classes.logoIcon} />
           </Box>
-          <Typography variant="h6" fontWeight={700} color="#0088cc">
+          <Typography variant="h6" fontWeight={700} color="primary">
             Chargoon Chat
           </Typography>
         </Box>

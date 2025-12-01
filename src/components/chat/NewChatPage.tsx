@@ -17,7 +17,7 @@ const useStyles = tss.create(({ theme }) => ({
     display: "flex",
     flexDirection: "column",
     overflow: "auto",
-    backgroundColor: "#f5f5f5",
+    backgroundColor: theme.palette.background.default,
   },
   header: {
     display: "flex",
@@ -25,7 +25,7 @@ const useStyles = tss.create(({ theme }) => ({
     gap: theme.spacing(2),
     padding: theme.spacing(2),
     borderBottom: `1px solid ${theme.palette.divider}`,
-    backgroundColor: "#ffffff",
+    backgroundColor: theme.palette.background.paper,
   },
   backButton: {
     color: theme.palette.text.primary,

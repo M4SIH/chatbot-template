@@ -22,16 +22,20 @@ const useNavItemStyles = tss
       paddingBottom: theme.spacing(1.5),
       paddingLeft: theme.spacing(2),
       paddingRight: theme.spacing(2),
-      backgroundColor: isActive ? "#e3f2fd" : "transparent",
-      color: isActive ? "#0088cc" : theme.palette.text.primary,
+      backgroundColor: isActive 
+        ? (theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light)
+        : "transparent",
+      color: isActive ? theme.palette.primary.main : theme.palette.text.primary,
       "&:hover": {
-        backgroundColor: isActive ? "#e3f2fd" : "#f5f5f5",
+        backgroundColor: isActive 
+          ? (theme.palette.mode === 'dark' ? theme.palette.primary.dark : theme.palette.primary.light)
+          : theme.palette.action.hover,
       },
     },
     navIcon: {
       marginRight: theme.spacing(2),
       fontSize: 20,
-      color: isActive ? "#0088cc" : "inherit",
+      color: isActive ? theme.palette.primary.main : "inherit",
     },
     navLabel: {
       flex: 1,

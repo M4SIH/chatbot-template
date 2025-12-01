@@ -15,19 +15,19 @@ const useStyles = tss.create(({ theme }) => ({
     overflowX: "hidden",
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
-    backgroundColor: "#f0f2f5",
+    backgroundColor: theme.palette.background.default,
     "&::-webkit-scrollbar": {
       width: "8px",
     },
     "&::-webkit-scrollbar-track": {
-      background: "#f1f1f1",
+      background: theme.palette.mode === 'dark' ? theme.palette.grey[800] : "#f1f1f1",
     },
     "&::-webkit-scrollbar-thumb": {
-      background: "#c1c1c1",
+      background: theme.palette.mode === 'dark' ? theme.palette.grey[600] : "#c1c1c1",
       borderRadius: "4px",
     },
     "&::-webkit-scrollbar-thumb:hover": {
-      background: "#a8a8a8",
+      background: theme.palette.mode === 'dark' ? theme.palette.grey[500] : "#a8a8a8",
     },
   },
   emptyState: {

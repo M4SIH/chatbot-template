@@ -12,13 +12,13 @@ interface ChatWindowProps {
   onSendMessage: (content: string) => void;
 }
 
-const useStyles = tss.create(() => ({
+const useStyles = tss.create(({ theme }) => ({
   root: {
     flex: 1,
     display: "flex",
     flexDirection: "column",
     height: "100vh",
-    backgroundColor: "#f0f2f5",
+    backgroundColor: theme.palette.background.default,
   },
 }));
 

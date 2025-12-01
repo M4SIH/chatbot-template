@@ -14,7 +14,7 @@ const useStyles = tss.create(({ theme }) => ({
     display: "flex",
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#f0f2f5",
+    backgroundColor: theme.palette.background.default,
   },
   paper: {
     padding: theme.spacing(4),

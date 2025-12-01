@@ -26,7 +26,7 @@ const useStyles = tss.create(({ theme }) => ({
   title: {
     fontSize: 28,
     fontWeight: 700,
-    color: "#0088cc",
+    color: theme.palette.primary.main,
     marginBottom: theme.spacing(1),
   },
   subtitle: {
@@ -38,7 +38,10 @@ const useStyles = tss.create(({ theme }) => ({
     justifyContent: "center",
   },
   toggleGroup: {
-    backgroundColor: "#f0f2f5",
+    backgroundColor:
+      theme.palette.mode === "dark"
+        ? theme.palette.grey[800]
+        : theme.palette.grey[100],
     borderRadius: theme.spacing(2),
     padding: theme.spacing(0.5),
   },
@@ -48,10 +51,10 @@ const useStyles = tss.create(({ theme }) => ({
     textTransform: "none",
     fontWeight: 500,
     "&.Mui-selected": {
-      backgroundColor: "#0088cc",
-      color: "#ffffff",
+      backgroundColor: theme.palette.primary.main,
+      color: theme.palette.primary.contrastText,
       "&:hover": {
-        backgroundColor: "#0077b3",
+        backgroundColor: theme.palette.primary.dark,
       },
     },
   },
@@ -63,7 +66,7 @@ const useStyles = tss.create(({ theme }) => ({
   field: {
     "& .MuiOutlinedInput-root": {
       borderRadius: theme.spacing(2),
-      backgroundColor: "#ffffff",
+      backgroundColor: theme.palette.background.paper,
       "& fieldset": {
         borderColor: theme.palette.divider,
       },
@@ -91,7 +94,7 @@ const useStyles = tss.create(({ theme }) => ({
   autocomplete: {
     "& .MuiOutlinedInput-root": {
       borderRadius: theme.spacing(2),
-      backgroundColor: "#ffffff",
+      backgroundColor: theme.palette.background.paper,
       "& fieldset": {
         borderColor: theme.palette.divider,
       },
@@ -130,12 +133,15 @@ const useStyles = tss.create(({ theme }) => ({
     alignItems: "center",
     gap: theme.spacing(2),
     padding: theme.spacing(2),
-    backgroundColor: "#f0f2f5",
+    backgroundColor:
+      theme.palette.mode === "dark"
+        ? theme.palette.grey[800]
+        : theme.palette.grey[100],
     borderRadius: theme.spacing(2),
     marginTop: theme.spacing(1),
   },
   userAvatar: {
-    backgroundColor: "#0088cc",
+    backgroundColor: theme.palette.primary.main,
     width: 40,
     height: 40,
   },
@@ -150,13 +156,13 @@ const useStyles = tss.create(({ theme }) => ({
     padding: theme.spacing(1.5, 3),
   },
   submitButton: {
-    backgroundColor: "#0088cc",
-    color: "#ffffff",
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
     textTransform: "none",
     borderRadius: theme.spacing(2),
     padding: theme.spacing(1.5, 3),
     "&:hover": {
-      backgroundColor: "#0077b3",
+      backgroundColor: theme.palette.primary.dark,
     },
   },
   errorText: {
@@ -250,11 +256,11 @@ export const NewChatForm = () => {
                     }}
                   >
                     <Avatar
-                      sx={{
-                        backgroundColor: "#0088cc",
+                      sx={(theme) => ({
+                        backgroundColor: theme.palette.primary.main,
                         width: 32,
                         height: 32,
-                      }}
+                      })}
                     >
                       {option.avatar ? (
                         <img src={option.avatar} alt={option.name} />
@@ -388,11 +394,11 @@ export const NewChatForm = () => {
                     }}
                   >
                     <Avatar
-                      sx={{
-                        backgroundColor: "#0088cc",
+                      sx={(theme) => ({
+                        backgroundColor: theme.palette.primary.main,
                         width: 32,
                         height: 32,
-                      }}
+                      })}
                     >
                       {option.avatar ? (
                         <img src={option.avatar} alt={option.name} />
@@ -429,11 +435,11 @@ export const NewChatForm = () => {
                     label={option.name}
                     avatar={
                       <Avatar
-                        sx={{
-                          backgroundColor: "#0088cc",
+                        sx={(theme) => ({
+                          backgroundColor: theme.palette.primary.main,
                           width: 24,
                           height: 24,
-                        }}
+                        })}
                       >
                         {option.avatar ? (
                           <img src={option.avatar} alt={option.name} />

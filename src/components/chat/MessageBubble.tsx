@@ -24,7 +24,7 @@ const useStyles = tss
       paddingRight: theme.spacing(2),
     },
     avatar: {
-      backgroundColor: "#0088cc",
+      backgroundColor: theme.palette.primary.main,
       width: 32,
       height: 32,
       flexShrink: 0,
@@ -36,8 +36,12 @@ const useStyles = tss
       paddingTop: theme.spacing(0.75),
       paddingBottom: theme.spacing(0.75),
       borderRadius: theme.spacing(2),
-      backgroundColor: isFromCurrentUser ? "#0088cc" : "#e4e6eb",
-      color: isFromCurrentUser ? "#ffffff" : "#000000",
+      backgroundColor: isFromCurrentUser 
+        ? theme.palette.primary.main 
+        : (theme.palette.mode === 'dark' ? theme.palette.grey[700] : theme.palette.grey[200]),
+      color: isFromCurrentUser 
+        ? theme.palette.primary.contrastText 
+        : theme.palette.text.primary,
       borderTopLeftRadius: isFromCurrentUser
         ? theme.spacing(2)
         : theme.spacing(0.5),

@@ -6,14 +6,19 @@ import {
   Avatar,
   Badge,
   Button,
+  Switch,
+  Tooltip,
 } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { tss } from "tss-react/mui";
 import SearchIcon from "@mui/icons-material/Search";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import AddIcon from "@mui/icons-material/Add";
+import DarkModeIcon from "@mui/icons-material/DarkMode";
+import LightModeIcon from "@mui/icons-material/LightMode";
 import { currentUser } from "../../data/mockData";
 import { getInitials } from "../../utils/userUtils";
+import { useThemeMode } from "../../contexts/ThemeContext";
 
 interface DashboardHeaderProps {
   searchValue?: string;
@@ -27,7 +32,7 @@ const useStyles = tss.create(({ theme }) => ({
     gap: theme.spacing(2),
     padding: theme.spacing(2),
     borderBottom: `1px solid ${theme.palette.divider}`,
-    backgroundColor: "#ffffff",
+    backgroundColor: theme.palette.background.paper,
   },
   searchIcon: {
     color: theme.palette.text.secondary,
@@ -36,7 +41,10 @@ const useStyles = tss.create(({ theme }) => ({
   textField: {
     maxWidth: 400,
     "& .MuiOutlinedInput-root": {
-      backgroundColor: "#f0f2f5",
+      backgroundColor:
+        theme.palette.mode === "dark"
+          ? theme.palette.grey[800]
+          : theme.palette.grey[100],
       borderRadius: theme.spacing(2),
       "& fieldset": {
         borderColor: "transparent",
@@ -50,14 +58,14 @@ const useStyles = tss.create(({ theme }) => ({
     },
   },
   newChatButton: {
-    backgroundColor: "#0088cc",
-    color: "#ffffff",
+    backgroundColor: theme.palette.primary.main,
+    color: theme.palette.primary.contrastText,
     textTransform: "none",
     borderRadius: theme.spacing(2),
     padding: theme.spacing(1, 2),
     fontWeight: 500,
     "&:hover": {
-      backgroundColor: "#0077b3",
+      backgroundColor: theme.palette.primary.dark,
     },
   },
   actions: {
@@ -66,8 +74,13 @@ const useStyles = tss.create(({ theme }) => ({
     gap: theme.spacing(1),
     marginLeft: "auto",
   },
+  themeToggle: {
+    display: "flex",
+    alignItems: "center",
+    gap: theme.spacing(0.5),
+  },
   avatar: {
-    backgroundColor: "#0088cc",
+    backgroundColor: theme.palette.primary.main,
     width: 36,
     height: 36,
     cursor: "pointer",
@@ -80,6 +93,7 @@ export const DashboardHeader = ({
 }: DashboardHeaderProps) => {
   const { classes } = useStyles();
   const navigate = useNavigate();
+  const { mode, toggleMode } = useThemeMode();
 
   const handleNewChat = () => {
     navigate("/chats/new");
@@ -110,6 +124,21 @@ export const DashboardHeader = ({
         className={classes.textField}
       />
       <Box className={classes.actions}>
+        <Box className={classes.themeToggle}>
+          <LightModeIcon fontSize="small" />
+          <Tooltip
+            title={
+              mode === "dark" ? "Switch to light mode" : "Switch to dark mode"
+            }
+          >
+            <Switch
+              checked={mode === "dark"}
+              onChange={toggleMode}
+              size="small"
+            />
+          </Tooltip>
+          <DarkModeIcon fontSize="small" />
+        </Box>
         <IconButton>
           <Badge badgeContent={3} color="primary">
             <NotificationsIcon />

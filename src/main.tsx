@@ -1,28 +1,15 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { ThemeProvider, createTheme } from "@mui/material/styles";
 import CssBaseline from "@mui/material/CssBaseline";
 import "./index.css";
 import App from "./App.tsx";
-
-const theme = createTheme({
-  palette: {
-    mode: "light",
-    primary: {
-      main: "#0088cc",
-    },
-    background: {
-      default: "#f0f2f5",
-      paper: "#ffffff",
-    },
-  },
-});
+import { ThemeContextProvider } from "./contexts/ThemeContext";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <ThemeProvider theme={theme}>
+    <ThemeContextProvider>
       <CssBaseline />
       <App />
-    </ThemeProvider>
+    </ThemeContextProvider>
   </StrictMode>
 );

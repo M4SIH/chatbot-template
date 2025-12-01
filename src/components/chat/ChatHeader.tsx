@@ -20,7 +20,7 @@ const useStyles = tss
       paddingLeft: theme.spacing(2),
       paddingRight: theme.spacing(2),
       borderBottom: `1px solid ${theme.palette.divider}`,
-      backgroundColor: "#ffffff",
+      backgroundColor: theme.palette.background.paper,
     },
     header: {
       height: 64,
@@ -30,16 +30,16 @@ const useStyles = tss
       paddingLeft: theme.spacing(2),
       paddingRight: theme.spacing(2),
       borderBottom: `1px solid ${theme.palette.divider}`,
-      backgroundColor: "#ffffff",
+      backgroundColor: theme.palette.background.paper,
     },
     badge: {
       "& .MuiBadge-badge": {
-        backgroundColor: isOnline ? "#4caf50" : "#9e9e9e",
-        border: "2px solid #ffffff",
+        backgroundColor: isOnline ? "#4caf50" : theme.palette.grey[500],
+        border: `2px solid ${theme.palette.background.paper}`,
       },
     },
     avatar: {
-      backgroundColor: "#0088cc",
+      backgroundColor: theme.palette.primary.main,
       width: 40,
       height: 40,
     },
